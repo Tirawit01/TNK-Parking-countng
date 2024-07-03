@@ -1,7 +1,7 @@
 #include <Wire.h>  // ไลบรารีสำหรับการสื่อสารผ่าน I2C
 #include <LiquidCrystal_PCF8574.h>  // ไลบรารีสำหรับควบคุมจอ LCD แบบ I2C
 
-LiquidCrystal_PCF8574 lcd(0x27);  // สร้างออบเจ็กต์สำหรับจอ LCD ที่อยู่ I2C คือ 0x27
+LiquidCrystal_PCF8574 lcd(0x27);  
 
 #define swCheckIN A0  // กำหนดขา A0 เป็นสวิตช์ CheckIN
 #define swCheckOUT A1 // กำหนดขา A1 เป็นสวิตช์ CheckOUT
@@ -14,17 +14,17 @@ int counter = 0;  // ตัวแปรนับจำนวนคน
 const int maxCounter = 3;  // กำหนดค่าสูงสุดของจำนวนคน
 
 void setup() {
-    Serial.begin(9600);  // เริ่มการสื่อสารผ่านพอร์ตอนุกรมที่ความเร็ว 9600 bps
+    Serial.begin(9600);  
     pinMode(swCheckIN, INPUT);  // ตั้งค่าให้ขา swCheckIN เป็นอินพุต
     pinMode(swCheckOUT, INPUT); // ตั้งค่าให้ขา swCheckOUT เป็นอินพุต
-    pinMode(relay, OUTPUT);     // ตั้งค่าให้ขา relay เป็นเอาต์พุต
+    pinMode(relay, OUTPUT);    
 
     lcd.begin(16, 2); 
     lcd.setBacklight(255); 
     lcd.setCursor(0, 0); 
     lcd.print("     Welcome    ");  
     delay(3000);  // รอ 3 วินาที   [1000  = 1วิ] 
-    lcd.clear();  // ล้างหน้าจอ LCD
+    lcd.clear(); 
 }
 
 void loop() {
@@ -91,5 +91,5 @@ void loop() {
     }
 }
 
-// โค้ดนี้จะนับจำนวนคนที่เข้าหรือออกจากพื้นที่โดยใช้สวิตช์สองตัว เมื่อจำนวนคนมากกว่า 0 รีเลย์จะเปิดไฟ และเมื่อจำนวนคนเท่ากับ 0 รีเลย์จะปิดไฟ สถานะต่างๆ จะแสดงบนจอ LCD
+
      
